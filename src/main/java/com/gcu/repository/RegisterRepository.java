@@ -13,7 +13,7 @@ public interface RegisterRepository extends CrudRepository<UserEntity, String> /
 {
 	// Example of truly overriding a method from the CrudRepository and using our own customized SQL
 	@Override
-	@Query(value = "SELECT * FROM users")
+	@Query(value = "SELECT * FROM users")//
 	public List<UserEntity>findAll();
 	
 	UserEntity findByUsername(String username);	
