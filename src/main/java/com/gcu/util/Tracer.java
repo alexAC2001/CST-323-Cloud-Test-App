@@ -6,6 +6,8 @@ import org.aopalliance.intercept.MethodInvocation;
 import org.apache.commons.logging.Log;
 import org.springframework.aop.interceptor.AbstractMonitoringInterceptor;
 
+//This tracing logic will log and measure the performance of each method
+
 public class Tracer extends AbstractMonitoringInterceptor
 {
 	private static final long serialVersionUID = -5378974652504403928L;

@@ -50,20 +50,26 @@ public class UserController
 	@GetMapping("/allUsers")
 	public String displayUsers(Model model)
 	{			
-		try
-		{
+		//try
+		//{
 			List<UserModel> users = userService.findAll();
+			
+			if(users != null)
+			{
+				throw new RuntimeException("Something bad happened");
+			}
 			
 			logger.info(null);
 			
 			model.addAttribute("title", "All User");
 			model.addAttribute("users", users);	
-		}
-		catch (Exception e)
-		{
-			model.addAttribute("title", "Not found...");
-		}
+		//}
+		//catch (Exception e)
+		//{
+			//model.addAttribute("title", "Not found...");
+		//}
 		return "viewUsers";
+			
 	}
 	
 	/* This method simply displays the form to create a new User.
