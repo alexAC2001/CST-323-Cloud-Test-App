@@ -50,7 +50,20 @@ public class UserController
 	@GetMapping("/allUsers")
 	public String displayUsers(Model model)
 	{			
-		//try
+		try
+		{
+			List<UserModel> users = userService.findAll();
+			model.addAttribute("title", "All User");
+			model.addAttribute("users", users);	
+		}
+		catch (Exception e)
+		{
+			model.addAttribute("title", "Not found...");
+		}
+		return "viewUsers";
+	}
+	
+		/*try
 		//{
 			List<UserModel> users = userService.findAll();
 			
@@ -69,8 +82,7 @@ public class UserController
 			//model.addAttribute("title", "Not found...");
 		//}
 		return "viewUsers";
-			
-	}
+	}*/
 	
 	/* This method simply displays the form to create a new User.
 	 * This is inserting some values into our text boxes
